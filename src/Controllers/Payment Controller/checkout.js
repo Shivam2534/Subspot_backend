@@ -4,7 +4,7 @@ import crypto from "crypto";
 const CreateAnOrderForPayment = async (req, res) => {
   try {
     const { amount } = req.body;
-
+   console.log(amount)
     const options = {
       amount: amount * 100, // amount in the smallest currency unit (its 500 rs)
       currency: "INR",

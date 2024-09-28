@@ -8,23 +8,16 @@ dotenv.config({
   path: "./env",
 });
 
-app.use(
-  cors({
-    origin: process.env.CORS_ORIGIN,
-    credentials: true,
-  })
-);
+app.use(cors());
 
 app.use(
   express.json({
-    // this is for , when data is coming from "form"
     limit: "16kb",
   })
 );
 
 app.use(
   express.urlencoded({
-    // this is for , when data is coming from "url"
     extended: true,
     limit: "16kb",
   })
@@ -34,13 +27,12 @@ app.use(express.static("Public")); // when we need to store files/imgs/pdfs in l
 
 app.use(cookieParser()); // so that we can do CRUD operations over cookies
 
-
 app.get("/", (req, res) => {
   res.send("Good to go with the youtube premium");
 });
 
 import paymentRoute from "./Routes/Paymet Routes/PaymentRoute.js";
-app.use("/api/v1", paymentRoute);
+app.use("/api/v1/pay", paymentRoute);
 
 import ApiKeyRouter from "./Routes/Paymet Routes/GetapiKeyRoute.js";
 app.use("/api/v1/key", ApiKeyRouter);
