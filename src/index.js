@@ -7,11 +7,10 @@ export const instance = new Razorpay({
   key_secret: process.env.RAZORPAY_API_SECRET,
 });
 
-
 connectDB().then(() => {
   try {
     app.listen(`${process.env.PORT}` || 4000, () => {
-      console.log("Server is Up and Running...");
+      console.log(`Server is Up and Running at ${process.env.PORT}`);
     });
   } catch (error) {
     console.log("Server Down");

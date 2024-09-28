@@ -2,7 +2,7 @@ import { Mongoose } from "mongoose";
 
 const UserSchema = new Mongoose.Schema(
   {
-    fullName: { type: String, required: true },
+    username: { type: String, required: true },
     loginEmail: { type: String, required: true, unique: true },
     subscribingEmail: { type: String },
     password: { type: String, required: true },
