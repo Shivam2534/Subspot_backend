@@ -10,28 +10,7 @@ dotenv.config({
 
 app.use(
   cors({
-    origin: "*", // Change to specific domain if necessary
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    allowedHeaders: [
-      "Content-Type",
-      "Authorization",
-      "X-Requested-With",
-      "Accept",
-      "Origin",
-    ],
-    // credentials: true, // Only if you use credentials like cookies
-  })
-);
-// app.use(
-//   cors({
-//     origin: process.env.CORS_ORIGIN,
-//     credentials: true,
-//   })
-// );
-
-app.use(
-  cors({
-    origin: "http://localhost:5173", // Allow frontend origin
+    origin: ["http://localhost:5173", "https://subsspot.vercel.app/"], // Allow frontend origin
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With"],
     credentials: true, // If you're using cookies or authentication
