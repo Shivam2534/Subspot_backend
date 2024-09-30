@@ -8,11 +8,16 @@ dotenv.config({
   path: "./env",
 });
 
-app.use(
-  cors({
-    origin: process.env.CORS_ORIGIN,
-  })
-);
+// app.use(
+//   cors({
+//     origin: process.env.CORS_ORIGIN,
+//   })
+// );
+app.use(cors({
+  origin: 'http://localhost:5173',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
 
 app.use(
   express.json({
