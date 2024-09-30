@@ -5,17 +5,12 @@ import cors from "cors";
 const app = express();
 
 dotenv.config({
-  path: "./env",
+  path: "./.env",
 });
 
-// app.use(
-//   cors({
-//     origin: process.env.CORS_ORIGIN,
-//   })
-// );
 app.use(
   cors({
-    origin: "*",
+    origin: "*", // Change to specific domain if necessary
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: [
       "Content-Type",
@@ -24,6 +19,7 @@ app.use(
       "Accept",
       "Origin",
     ],
+    credentials: true, // Only if you use credentials like cookies
   })
 );
 
