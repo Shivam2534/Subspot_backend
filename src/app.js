@@ -29,11 +29,12 @@ app.use(
 //   })
 // );
 
-app.options("*", cors());
-
 app.use(
-  express.json({
-    limit: "16kb",
+  cors({
+    origin: "http://localhost:5173", // Allow frontend origin
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With"],
+    credentials: true, // If you're using cookies or authentication
   })
 );
 
