@@ -8,18 +8,24 @@ dotenv.config({
   path: "./.env",
 });
 
+// app.use(
+//   cors({
+//     origin: "*", // Change to specific domain if necessary
+//     methods: ["GET", "POST", "PUT", "DELETE"],
+//     allowedHeaders: [
+//       "Content-Type",
+//       "Authorization",
+//       "X-Requested-With",
+//       "Accept",
+//       "Origin",
+//     ],
+//     credentials: true, // Only if you use credentials like cookies
+//   })
+// );
 app.use(
   cors({
-    origin: "*", // Change to specific domain if necessary
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    allowedHeaders: [
-      "Content-Type",
-      "Authorization",
-      "X-Requested-With",
-      "Accept",
-      "Origin",
-    ],
-    credentials: true, // Only if you use credentials like cookies
+    origin: process.env.CORS_ORIGIN,
+    credentials: true,
   })
 );
 
