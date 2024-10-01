@@ -118,10 +118,11 @@ const GenerateAccessAndRefreshTokens = async (userid) => {
     return { accesstoken, refreshtoken };
   } catch (error) {
     console.log("Error is:", error);
-    throw new ApiError(
-      500,
-      "something went wrong while generating access and refresh tokne "
-    );
+
+    return res.status(500).json({
+      message: "something went wrong while generating access and refresh tokne",
+      success: false,
+    });
   }
 };
 
